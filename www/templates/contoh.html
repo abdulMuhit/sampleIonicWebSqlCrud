@@ -1,0 +1,39 @@
+<ion-view view-title="Kategori Contoh">
+<ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+<ion-content>
+	<div class="bar bar-header bar-balanced">
+      <!--<button class="button button-clear button-primary" ui-sref='landing.contoh'>Tambah Kategori</button>-->
+      <h1 class="title">Kategori</h1>
+      <!--<button class="button button-calm" value="new" ng-click="editCat(editMode, kat)">+</button>-->
+      <button class="button button-calm" value="new" ng-click="AddCat()">+</button>
+      
+  	</div>
+<div class="contentMenu">
+
+<div class="list list-inset">
+  <label class="item item-input">
+    <label>Search: <input ng-model="searchText" placeholder="type here"></label>
+    <i class="icon ion-search placeholder-icon"></i>
+  </label>
+
+</div>
+	<div class="row header">
+      <div class="col" ><span ng-click="sort('nama')">Kategori</span><i ng-class="{'icon ion-android-arrow-dropdown': reverse, 'ion-android-arrow-dropup': !reverse}"></i></div>
+      <div class="col"><span ng-click="sort('subnama')">Sub Kategori</span><i ng-class="{'icon ion-android-arrow-dropdown': reverse, 'ion-android-arrow-dropup': !reverse}"></i></div>
+    	<div class="col"><span ng-click="sort('satuan')">Satuan</span><i ng-class="{'icon ion-android-arrow-dropdown': reverse, 'ion-android-arrow-dropup': !reverse}"></i></div>
+  </div>
+
+  <div class="row" ng-repeat="kat in kategori | filter:searchText | orderBy:sortKey:reverse" ng-click="editCat(kat)">
+    	<div class="col">{{kat.nama}}</div>
+     	<div class="col">{{kat.subnama}}</div>
+     	<div class="col">{{kat.satuan}}</div>
+   
+  </div>
+
+    <button class="col button button-calm text-center" value="new" ng-click="AddCat()">Tambah Kategori</button>
+
+	</div>
+</ion-content>
+</ion-view>

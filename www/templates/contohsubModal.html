@@ -1,0 +1,30 @@
+<ion-modal-view>
+	<ion-header-bar class="bar bar-header bar-positive">
+		<h1 class="title">Tambah Kategori</h1>
+		<button class="button button-clear button-primary" ng-click="modalAddCat.hide()">Batal</button>
+	</ion-header-bar>
+	<ion-content class="padding">
+
+	<div class="list">
+			<label class="item item-input">
+			<span class="input-label">Nama Kategori</span>
+			<input ng-model="katEdit.nama" type="text">
+			</label>
+			<label class="item item-input">
+			<span class="input-label">Sub Kategori</span>
+			<input ng-model="katEdit.subnama" type="text">
+			</label>
+			<label class="item item-input">
+			<span class="input-label">satuan</span>
+			<input ng-model="katEdit.satuan" value="{{katEdit.satuan}}" type="text"><label ng-click="showAlert()">---</label>
+			</label>	          
+        </div>
+
+			<button ng-show="!AddCatMode" class="button button-full button-positive" ng-click="createCategory(katEdit)">Edit</button>
+			<button ng-show="AddCatMode" class="button button-full button-positive" ng-click="createCategory(katEdit)">Simpan</button>
+			<button ng-show="!AddCatMode" class="button button-full button-positive" ng-click="deleteId(katEdit.katId, 'Category')">Hapus</button>
+			
+	</ion-content>
+</ion-modal-view>
+
+
